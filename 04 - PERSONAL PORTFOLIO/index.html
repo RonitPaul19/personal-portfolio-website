@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ronit’s Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style type="text/tailwindcss">
+    @layer components {
+      .hero-image {
+        @apply rounded-2xl shadow-2xl;
+        transform: rotateX(5deg) rotateY(-10deg) rotateZ(2deg);
+      }
+      .hero-reflection {
+        @apply absolute inset-0 left-20 top-10 rounded-2xl bg-gradient-to-bl from-indigo-200 to-pink-200;
+        transform: scale(1.1) rotateX(5deg) rotateY(-10deg) rotateZ(2deg);
+      }
+    }
+    @layer utilities {
+      .perspective-1000 {
+        perspective: 1000px;
+      }
+    }
+    @layer base {
+      .gradient-hover-outer {
+          @apply p-[1px] bg-slate-200 hover:bg-gradient-to-br hover:from-red-200 hover:via-purple-200 hover:to-yellow-200;
+      }
+      .gradient-hover-inner {
+          @apply bg-slate-50 group-hover:bg-gradient-to-br group-hover:from-red-50 group-hover:via-purple-50 group-hover:to-yellow-50;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-gradient-to-b from-indigo-50 via-yellow-50 to-transparent min-h-screen">
+  <!-- HEADER -->
+  <header class="p-5 bg-indigo-50 hover:bg-indigo-100 transition-colors duration-500 border-b border-indigo-200">
+    <nav class="flex justify-between items-center max-w-8xl mx-auto">
+      <!-- Name -->
+      <div class="flex gap-3 items-center ">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+          class="size-[60px] text-indigo-700">
+          <path fill-rule="evenodd"
+            d="M3 6a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V6Zm14.25 6a.75.75 0 0 1-.22.53l-2.25 2.25a.75.75 0 1 1-1.06-1.06L15.44 12l-1.72-1.72a.75.75 0 1 1 1.06-1.06l2.25 2.25c.141.14.22.331.22.53Zm-10.28-.53a.75.75 0 0 0 0 1.06l2.25 2.25a.75.75 0 1 0 1.06-1.06L8.56 12l1.72-1.72a.75.75 0 1 0-1.06-1.06l-2.25 2.25Z"
+            clip-rule="evenodd" />
+        </svg>
+        <h1
+          class="text-5xl font-bold bg-gradient-to-r from-purple-900 to-indigo-700 hover:bg-gradient-to-r hover:from-indigo-700 hover:to-purple-900 bg-clip-text text-transparent transition-colors duration-300 drop-shadow-lg tracking-tight">
+          Ronit.dev
+        </h1>
+      </div>
+      <!-- NavLinks -->
+      <ul class="flex gap-8">
+        <li><a href="#about"
+            class="text-2xl text-gray-600 hover:bg-clip-text hover:text-transparent hover:bg-gradient-to-r hover:from-purple-900 hover:to-indigo-700">About</a>
+        </li>
+        <li><a href="#about"
+            class="text-2xl text-gray-600 hover:bg-clip-text hover:text-transparent hover:bg-gradient-to-r hover:from-purple-900 hover:to-indigo-700">Projects</a>
+        </li>
+        <li><a href="#about"
+            class="text-2xl text-gray-600 hover:bg-clip-text hover:text-transparent hover:bg-gradient-to-r hover:from-purple-900 hover:to-indigo-700">Skills</a>
+        </li>
+        <li><a href="#about"
+            class="text-2xl text-gray-600 hover:bg-clip-text hover:text-transparent hover:bg-gradient-to-r hover:from-purple-900 hover:to-indigo-700">Contact</a>
+        </li>
+      </ul>
+      <!-- Socials -->
+      <ul class="flex gap-8">
+        <li class="text-2xl font-semibold">
+          <a href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+              class="w-6 h-6 hover:text-indigo-600 transition-colors hover:scale-110 transition-transform duration-300">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.26.82-.577
+           0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.729.083-.729
+           1.205.085 1.84 1.236 1.84 1.236 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.304.76-1.604-2.665-.3-5.466-1.334-5.466-5.932
+           0-1.31.467-2.382 1.235-3.222-.123-.303-.536-1.523.117-3.176 0 0 1.008-.322 3.3 1.23.957-.266 1.983-.399 3.003-.404 1.02.005
+           2.047.138 3.006.404 2.29-1.552 3.296-1.23 3.296-1.23.655 1.653.242 2.873.119 3.176.77.84 1.232 1.912 1.232 3.222
+           0 4.61-2.804 5.628-5.476 5.922.43.372.823 1.102.823 2.222 0 1.604-.014 2.896-.014 3.286 0 .32.216.694.825.576C20.565
+           21.796 24 17.3 24 12c0-6.63-5.37-12-12-12z" />
+            </svg>
+          </a>
+        </li>
+        <li class="text-2xl font-semibold hover:text-indigo-600">
+          <a href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+              class="w-6 h-6 transition-colors hover:scale-110 transition-transform duration-300">
+              <path d="M22.23 0H1.77C.792 0 0 .774 0 1.728v20.543C0 23.226.792 24 1.77
+           24h20.46C23.208 24 24 23.226 24 22.271V1.728C24 .774 23.208 0 22.23
+           0zM7.09 20.452H3.545V9H7.09v11.452zM5.318 7.433a2.055 2.055 0 1
+           1 0-4.111 2.055 2.055 0 0 1 0 4.111zM20.452 20.452h-3.545v-5.604c0-1.336-.027-3.057-1.863-3.057-1.864 0-2.15
+           1.455-2.15 2.957v5.704h-3.545V9h3.405v1.561h.047c.474-.898 1.632-1.843
+           3.36-1.843 3.592 0 4.258 2.364 4.258 5.437v6.297z" />
+            </svg>
+          </a>
+        </li>
+        <li class="text-2xl font-semibold hover:text-indigo-600">
+          <a href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+              class="w-6 h-6 transition-colors hover:scale-110 transition-transform duration-300">
+              <path d="M22.675 0h-21.35C.597 0 0 .597 0 1.325v21.351C0 23.403.597 24 1.325
+           24H12.82v-9.294H9.692V11.29h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788
+           1.325 0 2.464.099 2.796.143v3.24h-1.919c-1.507 0-1.799.717-1.799
+           1.77v2.323h3.595l-.468 3.416h-3.127V24h6.127C23.403 24 24 23.403
+           24 22.676V1.325C24 .597 23.403 0 22.675 0z" />
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Intro -->
+    <section id="intro" class="flex items-center justify-between max-w-7xl mx-auto px-20 py-32 gap-16">
+      <!-- Text Content -->
+      <div class="w-1/2 space-y-8">
+        <h2 class="text-6xl font-bold text-gray-900 leading-tight">
+          Hi, I’m Ronit!<br>
+          I build modern web applications.
+        </h2>
+        <p class="text-xl text-gray-700 max-w-md">
+          I’m a passionate developer focused on front-end & UI design. Explore my projects and see what I can build.
+        </p>
+        <a href="#projects"
+          class="inline-block px-8 py-4 bg-gradient-to-r from-purple-900 to-indigo-700 text-white rounded-xl shadow-xl hover:from-indigo-700 hover:to-purple-900 transition-all duration-300">
+          View Projects
+        </a>
+      </div>
+      <!-- Image -->
+      <div class="relative scale-90 lg:scale-110 lg:w-2/3 lg:perspective-1000">
+        <div class="hero-reflection"></div>
+        <img src="./assets/editor.png" alt="Editor UI" class="hero-image">
+      </div>
+    </section>
+    <!-- About Me -->
+    <section id="about" class="flex items-center justify-between max-w-7xl mx-auto px-40 py-32 gap-16">
+      <div>
+        <h2 class="text-6xl font-bold text-gray-900 leading-tight pb-[70px]">
+          About Me
+        </h2>
+        <p class="text-xl text-gray-700 max-w-md leading-loose">
+          I’m Ronit, a web developer skilled in HTML, CSS, Java, Python, and MySQL. I enjoy building modern,
+          user-friendly web applications and turning ideas into real projects.
+        </p>
+      </div>
+      <div class="">
+        <img src="./assets/Image.webp" width="400" alt="my image" class="rounded-2xl shadow-xl">
+      </div>
+    </section>
+    <!-- Technology slider section -->
+    <section class="py-10">
+      <h2 class="text-5xl font-semibold text-gray-900 leading-tight pb-[70px] px-[150px]">
+        Technologies I use in my Workflow
+      </h2>
+      <div id="features-line" class="mt-4 px-[150px]">
+        <div class="border rounded-lg overflow-hidden flex justify-center p-4">
+          <div id="line4" class="flex gap-8 p-6">
+            <h3 class="my-0 mx-2 whitespace-nowrap font-display text-2xl font-semibold leading-7">HTML
+            </h3>
+            <span>•</span>
+            <h3 class="my-0 mx-2 whitespace-nowrap font-display text-2xl font-semibold leading-7">CSS</h3>
+            <span>•</span>
+            <h3 class="my-0 mx-2 whitespace-nowrap font-display text-2xl font-semibold leading-7">JavaScript
+            </h3>
+            <span>•</span>
+            <h3 class="my-0 mx-2 whitespace-nowrap font-display text-2xl font-semibold leading-7">TypeScript</h3>
+            <span>•</span>
+            <h3 class="my-0 mx-2 whitespace-nowrap font-display text-2xl font-semibold leading-7">React</h3>
+            <span>•</span>
+            <h3 class="my-0 mx-2 whitespace-nowrap font-display text-2xl font-semibold leading-7">Tailwind CSS
+            </h3>
+            <span>•</span>
+            <h3 class="my-0 mx-2 whitespace-nowrap font-display text-2xl font-semibold leading-7">Vite</h3>
+            <span>•</span>
+            <h3 class="my-0 mx-2 whitespace-nowrap font-display text-2xl font-semibold leading-7">Laravel</h3>
+            <span>•</span>
+            <h3 class="my-0 mx-2 whitespace-nowrap font-display text-2xl font-semibold leading-7">Python</h3>
+            <span>•</span>
+            <h3 class="my-0 mx-2 whitespace-nowrap font-display text-2xl font-semibold leading-7">HTML
+            </h3>
+            <span>•</span>
+            <h3 class="my-0 mx-2 whitespace-nowrap font-display text-2xl font-semibold leading-7">CSS</h3>
+            <span>•</span>
+            <h3 class="my-0 mx-2 whitespace-nowrap font-display text-2xl font-semibold leading-7">JavaScript
+            </h3>
+            <span>•</span>
+            <h3 class="my-0 mx-2 whitespace-nowrap font-display text-2xl font-semibold leading-7">TypeScript</h3>
+            <span>•</span>
+            <h3 class="my-0 mx-2 whitespace-nowrap font-display text-2xl font-semibold leading-7">React</h3>
+            <span>•</span>
+            <h3 class="my-0 mx-2 whitespace-nowrap font-display text-2xl font-semibold leading-7">Tailwind CSS
+            </h3>
+            <span>•</span>
+            <h3 class="my-0 mx-2 whitespace-nowrap font-display text-2xl font-semibold leading-7">Vite</h3>
+            <span>•</span>
+            <h3 class="my-0 mx-2 whitespace-nowrap font-display text-2xl font-semibold leading-7">Laravel</h3>
+            <span>•</span>
+            <h3 class="my-0 mx-2 whitespace-nowrap font-display text-2xl font-semibold leading-7">Python</h3>
+            <span>•</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Project Bento grid -->
+    <section class="py-32">
+      <div class="max-w-7xl mx-auto px-6 lg:px-20">
+        <h2 class="text-5xl font-bold mb-16 text-gray-900">Projects I’ve Built</h2>
+        <div class="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-min">
+          <div class="group rounded-2xl gradient-hover-outer">
+            <div class="rounded-2xl w-full h-full p-6 flex flex-col gap-6 items-center gradient-hover-inner">
+              <h3 class="text-2xl font-semibold">Native Notifications</h3>
+              <p class="text-lg text-center font-light">
+                We’ll ensure the underlying browser is up to date and deliver performance improvements, security
+                patches, & additional features.
+              </p>
+              <img src="./assets/editor.png" alt="Project" class="rounded-xl w-[200px] h-[200px] object-contain">
+            </div>
+          </div>
+          <div class="group rounded-2xl gradient-hover-outer">
+            <div class="rounded-2xl w-full h-full p-6 flex flex-col gap-6 items-center gradient-hover-inner">
+              <h3 class="text-2xl font-semibold">Project Two</h3>
+              <p class="text-lg text-center font-light">
+                We’ll ensure the underlying browser is up to date and deliver performance improvements, security
+                patches, & additional features.
+              </p>
+              <img src="./assets/editor.png" alt="Project" class="rounded-xl w-[200px] h-[200px] object-contain">
+            </div>
+          </div>
+          <div class="group rounded-2xl gradient-hover-outer">
+            <div class="rounded-2xl w-full h-full p-6 flex flex-col gap-6 items-center gradient-hover-inner">
+              <h3 class="text-2xl font-semibold">Project Three</h3>
+              <p class="text-lg text-center font-light">
+                We’ll ensure the underlying browser is up to date and deliver performance improvements, security
+                patches, & additional features.
+              </p>
+              <img src="./assets/editor.png" alt="Project" class="rounded-xl w-[200px] h-[200px] object-contain">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="py-12">
+    <div class="max-w-7xl mx-auto px-6 md:px-20 flex flex-col md:flex-row justify-between gap-12">
+
+      <!-- Brand & Quote -->
+      <div class="flex flex-col gap-4">
+        <a href="#" class="flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+            class="w-10 h-10 -rotate-6 text-indigo-700">
+            <path fill-rule="evenodd"
+              d="M3 6a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V6Zm14.25 6a.75.75 0 0 1-.22.53l-2.25 2.25a.75.75 0 1 1-1.06-1.06L15.44 12l-1.72-1.72a.75.75 0 1 1 1.06-1.06l2.25 2.25c.141.14.22.331.22.53Zm-10.28-.53a.75.75 0 0 0 0 1.06l2.25 2.25a.75.75 0 1 0 1.06-1.06L8.56 12l1.72-1.72a.75.75 0 1 0-1.06-1.06l-2.25 2.25Z"
+              clip-rule="evenodd" />
+          </svg>
+          <span class="text-3xl font-bold bg-gradient-to-r from-purple-900 to-indigo-700
+                     bg-clip-text text-transparent">
+            Ronit.dev
+          </span>
+        </a>
+        <p class="text-gray-700 max-w-xs">
+          I always try to make the best out of anything. Creating modern, user-friendly web experiences.
+        </p>
+      </div>
+
+      <!-- Links Section -->
+      <div class="flex flex-col sm:flex-row gap-12 md:gap-20">
+
+        <!-- Technologies -->
+        <div class="flex flex-col gap-4">
+          <h3 class="text-sm font-semibold uppercase tracking-wider text-gray-600">Technologies</h3>
+          <ul class="flex flex-col gap-2">
+            <li><a href="#" class="text-gray-500 hover:text-gray-900">React</a></li>
+            <li><a href="#" class="text-gray-500 hover:text-gray-900">Laravel</a></li>
+            <li><a href="#" class="text-gray-500 hover:text-gray-900">Tailwind CSS</a></li>
+          </ul>
+        </div>
+
+        <!-- Worked on-->
+        <div class="flex flex-col gap-4">
+          <h3 class="text-sm font-semibold uppercase tracking-wider text-gray-600">Worked on</h3>
+          <ul class="flex flex-col gap-2">
+            <li><a href="#" class="text-gray-500 hover:text-gray-900">Google</a></li>
+            <li><a href="#" class="text-gray-500 hover:text-gray-900">Amazon</a></li>
+            <li><a href="#" class="text-gray-500 hover:text-gray-900">Microsoft</a></li>
+          </ul>
+        </div>
+
+        <!-- Socials -->
+        <div class="flex flex-col gap-4">
+          <h3 class="text-sm font-semibold uppercase tracking-wider text-gray-600">Social</h3>
+          <ul class="flex flex-col gap-2">
+            <li><a href="#" class="text-gray-500 hover:text-gray-900">YouTube</a></li>
+            <li><a href="#" class="text-gray-500 hover:text-gray-900">Telegram</a></li>
+            <li><a href="#" class="text-gray-500 hover:text-gray-900">GitHub</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="mt-6 mx-[100px] border-t border-indigo-200">
+    </div>
+    <!-- Copyright -->
+    <div class="mt-12 pt-6 text-center text-gray-600 text-sm">
+      &copy; 2025 Ronit.dev. All rights reserved.
+    </div>
+  </footer>
+</body>
+
+<script>
+  const navDialog = document.getElementById('nav-dialog');
+  function handleMenu() {
+    navDialog.classList.toggle('hidden');
+  }
+
+  const initialTranslateLTR = -48 * 4;
+  const initialTranslateRTL = 36 * 4;
+
+  function setupIntersectionObserver(element, isLTR, speed) {
+    const intersectionCallback = (entries) => {
+      const isIntersecting = entries[0].isIntersecting;
+      if (isIntersecting) {
+        document.addEventListener('scroll', scrollHandler);
+      } else {
+        document.removeEventListener('scroll', scrollHandler);
+      }
+    }
+    const intersectionObserver = new IntersectionObserver(intersectionCallback);
+
+    intersectionObserver.observe(element);
+
+    function scrollHandler() {
+      const translateX = (window.innerHeight - element.getBoundingClientRect().top) * speed;
+
+      let totalTranslate = 0;
+      if (isLTR) {
+        totalTranslate = translateX + initialTranslateLTR;
+      } else {
+        totalTranslate = -(translateX + initialTranslateRTL);
+      }
+
+      element.style.transform = `translateX(${totalTranslate}px)`;
+    }
+
+  }
+
+  const line4 = document.getElementById('line4');
+
+  setupIntersectionObserver(line4, true, 0.8);
+
+  const dtElements = document.querySelectorAll('dt');
+  dtElements.forEach(element => {
+    element.addEventListener('click', () => {
+      const ddId = element.getAttribute('aria-controls');
+      const ddElement = document.getElementById(ddId);
+      const ddArrowIcon = element.querySelectorAll('i')[0];
+
+      ddElement.classList.toggle('hidden');
+      ddArrowIcon.classList.toggle('-rotate-180');
+    })
+  })
+</script>
+
+</html>
